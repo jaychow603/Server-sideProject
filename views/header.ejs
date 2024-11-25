@@ -1,0 +1,30 @@
+    <header> 
+        <nav> 
+            <div class="nav-left"> 
+                <ul> 
+                    <li><a href="/homepage"><img src="logo.png" alt="Logo" class="logo"> Home</a></li> 
+                    <li><a href="/course">Courses</a></li> 
+                    <% if (userRole === 'student') { %>
+                    <li><a href="/academic-record">Academic Record</a></li> 
+                    <% } %>
+                    <% if (userRole === 'teacher') { %>
+                            <li><a href="/student">Students Management</a></li>
+                    <% } %>
+                </ul> 
+            </div> 
+            <div class="nav-right"> 
+                <ul> 
+                    <li class="dropdown"> 
+                        <a href="javascript:void(0)" class="dropbtn"><img src="/images/avatar.jpg" alt="Avatar" class="avatar"></a> 
+                        <div class="dropdown-content"> 
+                            <span>User:<br/> <%= username %></span>
+                            <% if (userRole === 'student') { %>
+                            <a href="/student/info" id="logout-link">Profile</a>
+                            <% } %>
+                            <a href="/logout" id="logout-link">Logout</a>
+                        </div>
+                    </li> 
+                </ul> 
+            </div> 
+        </nav> 
+    </header>

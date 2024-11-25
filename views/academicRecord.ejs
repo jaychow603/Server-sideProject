@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Academic Records</title>
+    <link rel="stylesheet" href="/stylesheets/academicRecordStyle.css">
+</head>
+<body>
+    <%- include('header') %>
+    <h1>Students Enrolled in Course</h1>
+    <table>
+        <tr>
+            <th>Student Name</th>
+            <th>Student ID</th>
+        </tr>
+        <% students.forEach(student => { %>
+            <tr class="student-row" onclick="location.href='/academic-record/detail/<%= student.stud_id %>?courseId=<%= courseId %>'">
+                <td><%= student.name %></td>
+                <td><%= student.stud_id %></td>
+            </tr>
+        <% }); %>
+    </table>
+    <button onclick="location.href='/course'">Back to Course List</button>
+</body>
+</html>
+

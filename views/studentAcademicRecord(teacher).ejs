@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Academic Record</title>
+    <link rel="stylesheet" href="/stylesheets/studentAcademicRecordStyle.css">
+</head>
+<body>
+    <%- include('header') %>
+    <h1>Academic Record for Student ID: <%= record.stud_id %></h1>
+    <button onclick="location.href='/academic-record/<%= record.Course_ID %>'">Back to Academic Records</button>
+    <br/>
+
+    <form id="recordForm" action="/academic-record/update" method="POST" onsubmit="return validateAndSubmit(event)">
+        <input type="hidden" name="studId" value="<%= record.stud_id %>">
+        <input type="hidden" name="CourseID" value="<%= courseId %>">
+        <div>
+            <label>Assignment Score: 
+                <input type="text" id="assignmentScore" name="assignmentScore" value="<%= record.assignment_score %>" readonly class="readonly-mode" disabled>
+                <input type="text" id="assignmentScoreEdit" name="assignmentScoreEdit" value="<%= record.assignment_score %>" class="edit-mode hidden" oninput="updateGrade()">
+            </label>
+            <label>Test Score: 
+                <input type="text" id="testScore" name="testScore" value="<%= record.test_score %>" readonly class="readonly-mode" disabled>
+                <input type="text" id="testScoreEdit" name="testScoreEdit" value="<%= record.test_score %>" class="edit-mode hidden" oninput="updateGrade()">
+            </label>
+            <label>Exam Score: 
+                <input type="text" id="examScore" name="examScore" value="<%= record.Exam_score %>" readonly class="readonly-mode" disabled>
+                <input type="text" id="examScoreEdit" name="examScoreEdit" value="<%= record.Exam_score %>" class="edit-mode hidden" oninput="updateGrade()">
+            </label>
+            <label>Grade: 
+                <input type="text" id="grade" name="grade" value="<%= record.Grade %>" readonly class="readonly-mode" disabled>
+                <input type="text" id="gradeEdit" name="gradeEdit" value="<%= record.Grade %>" class="edit-mode hidden">
+            </label>
+        </div>
+        <div>
+            <button type="button" onclick="editRecord()" id="editbutton">Edit</button>
+            <button type="button" onclick="cancelEdit()" class="hidden" id="cancelButton">Cancel</button>
+            <button type="submit" class="hidden" id="updateButton">Update</button>
+        </div>
+    </form>
+
+    <script>
+        function editRecord() {
+            document.querySelectorAll('.readonly-mode').forEach(input => {
+                input.classList.add('hidden');
+                input.disabled = true;
+            });
+            document.querySelectorAll('.edit-mode').forEach(input => {
+                input.classList.remove('hidden');
+                input.disabled = false;
+            });
+            document.getElementById('cancelButton').classList.remove('hidden');
+            document.getElementById('updateButton').classList.remove('hidden');
+            document.getElementById('editbutton').classList.add('hidden');
+        }
+
+        function cancelEdit() {
+            document.querySelectorAll('.edit-mode').forEach(input => {
+                input.classList.add('hidden');
+                input.disabled = true;
+            });
+            document.querySelectorAll('.readonly-mode').forEach(input => {
+                input.classList.remove('hidden');
+                input.disabled = true;
+            });
+            document.getElementById('cancelButton').classList.add('hidden');
+            document.getElementById('updateButton').classList.add('hidden');
+            document.getElementById('editbutton').classList.remove('hidden');
+        }
+
+        function updateGrade() {
+            const assignmentScore = parseFloat(document.getElementById('assignmentScoreEdit').value) || 0;
+            const examScore = parseFloat(document.getElementById('examScoreEdit').value) || 0;
+            const testScore = parseFloat(document.getElementById('testScoreEdit').value) || 0;
+            let grade = '';
+
+            // Calculate total score
+            const totalScore = (assignmentScore * 0.2) + (testScore * 0.3) + (examScore * 0.5);
+
+            if (totalScore >= 90) grade = 'A';
+            else if (totalScore >= 80) grade = 'B';
+            else if (totalScore >= 75) grade = 'C';
+            else if (totalScore >= 55) grade = 'D';
+            else if (totalScore >= 40) grade = 'E';
+            else grade = 'F';
+            document.getElementById('gradeEdit').value = grade;
+        }
+
+        function validateAndSubmit(event) {
+            event.preventDefault();
+
+            const assignmentScore = parseFloat(document.getElementById('assignmentScoreEdit').value);
+            const examScore = parseFloat(document.getElementById('examScoreEdit').value);
+            const testScore = parseFloat(document.getElementById('testScoreEdit').value);
+
+            if (assignmentScore < 0 || assignmentScore > 100 ||
+                examScore < 0 || examScore > 100 ||
+                testScore < 0 || testScore > 100) {
+                alert('Scores must be between 0 and 100.');
+                return false;
+            }
+
+            const totalScore = (assignmentScore * 0.2) + (testScore * 0.3) + (examScore * 0.5);
+            let grade = '';
+
+            if (totalScore >= 90) grade = 'A';
+            else if (totalScore >= 80) grade = 'B';
+            else if (totalScore >= 75) grade = 'C';
+            else if (totalScore >= 55) grade = 'D';
+            else if (totalScore >= 40) grade = 'E';
+            else grade = 'F';
+
+            document.getElementById('assignmentScore').value = assignmentScore;
+            document.getElementById('testScore').value = testScore;
+            document.getElementById('examScore').value = examScore;
+            document.getElementById('grade').value = grade;
+
+            document.getElementById('recordForm').submit();
+            return false;
+        }
+    </script>
+</body>
+</html>
+

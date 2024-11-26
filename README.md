@@ -7,5 +7,5 @@ Online Learning platform
 # Group Information
 - Group No: 38
 - **Student Name and Student ID:**
-  Chow Chun Ting (13342640)
+  - Chow Chun Ting (13342640)
 # Cloud URL

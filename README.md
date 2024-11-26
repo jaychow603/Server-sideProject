@@ -11,7 +11,7 @@ Online Learning platform
   - Chow Chun Ting (13342640)
   - Chan Tsz Ho (13242991)
   - CHU SIK HIN (13372042)
-  - Wong Ho Yin ()
+  - Wong Ho Yin (13476027)
   - Yau Wing Yan (12291373)
 
 # Project Overview

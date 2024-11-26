@@ -64,3 +64,8 @@ npm start
   - **Academic Record**:Click the `Academic Record` will redirect to the term summary (`academicrecord(student).ejs`).There show the current information of user.
   - **Profile**:Click the `profile` redirect to the personal information and password setting page(`studentinfo.ejs`).There are boxes for user to enter their password and new password and it will correct the data in the database by pressing `change password`.
 
+3.Functions on web pages(teacher)
+ - **Courses**:Click the `courses` in the header will redirect to the course schedule (`coursepage.ejs`).In course page, the course is showed on the timetable according to the user's learning courses.
+   -There are the course arrcording to the teacher is teaching.Teacher can go into the student academic record(`academicrecord(teacher).ejs`) .There allows teacher change the data of students here to the database.
+   
+ - **Students Management**:Click the `Students Management` will redirect to the student list(`studentmanage.ejs`).Here allow the user remove or add student into the class by `Create Student` or `Remove`.

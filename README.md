@@ -12,7 +12,7 @@ Online Learning platform
   - Chan Tsz Ho (13242991)
   - CHU SIK HIN (13372042)
   - Wong Ho Yin ()
-  - 
+  - Yau Wing Yan (12291373)
 
 # Project Overview
 The online learning platform is designed to let teacher and student manage and store their academic online. It provides serval functions including checking academic record, studing subject and time table.

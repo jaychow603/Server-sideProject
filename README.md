@@ -21,3 +21,8 @@ The online learning platform is designed to let teacher and student manage and s
 
 
  `package.json`:
+- body-parser(`^1.20.3`):
+- ejs(`^3.1.10`):A simple templating language to generate HTML with plain JavaScript
+- express(`^4.21.1`):
+- express-session(`1.18.1`):
+- mongodb(`^6.10.0`):

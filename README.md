@@ -1,11 +1,13 @@
 # 381F Server-sideProject
-
+# Cloud URL
 # Project Info
-# Project Name
-Online Learning platform
+## Project Name
+**Online Learning platform**
 
 # Group Information
-- Group No: 38
-- **Student Name and Student ID:**
-  - Chow Chun Ting (13342640)
-# Cloud URL
+- Group NO: 38
+- students' names and SIDs:
+  - chan tszho
+
+
+##

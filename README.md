@@ -21,7 +21,7 @@ The online learning platform is designed to let teacher and student manage and s
 
 
  `package.json`:
-- body-parser(`^1.20.3`):
+- body-parser(`^1.20.3`):Body-parser parses is an HTTP request body that usually helps when you need to know more than just the URL being hit.
 - ejs(`^3.1.10`):A simple templating language to generate HTML with plain JavaScript
 - express(`^4.21.1`): A popular Node.js web framework for building web applications and APIs.
 - express-session(`1.18.1`):The express-session middleware allows the creation and storage of the session data used for authentication or user preferences

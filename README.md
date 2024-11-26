@@ -24,8 +24,8 @@ The online learning platform is designed to let teacher and student manage and s
 - body-parser(`^1.20.3`):
 - ejs(`^3.1.10`):A simple templating language to generate HTML with plain JavaScript
 - express(`^4.21.1`): A popular Node.js web framework for building web applications and APIs.
-- express-session(`1.18.1`):
-- mongodb(`^6.10.0`):A online database platform
+- express-session(`1.18.1`):The express-session middleware allows the creation and storage of the session data used for authentication or user preferences
+- mongodb(`^6.10.0`):MongoDB is a source-available, cross-platform, document-oriented database program.
 
 `public folder`:
 

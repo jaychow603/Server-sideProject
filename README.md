@@ -26,3 +26,19 @@ The online learning platform is designed to let teacher and student manage and s
 - express(`^4.21.1`):
 - express-session(`1.18.1`):
 - mongodb(`^6.10.0`):
+
+`public folder`:
+
+
+`views folder`:
+1.academicRecord.ejs
+2.academicrecord(student).ejs
+3.courseDetail.ejs
+4.coursepage.ejs
+5.header.ejs
+6.homepage.ejs
+7.login.ejs
+8.studentAcademicRecord.ejs
+9.studentinfo.ejs
+10.studentmanage.ejs
+

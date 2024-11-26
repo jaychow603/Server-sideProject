@@ -42,6 +42,9 @@ The online learning platform is designed to let teacher and student manage and s
 9. studentinfo.ejs
 10. studentmanage.ejs
 
+## Install
+Download the file `Server-SideProject.zip` and unzip it. You can use vi
+
 ## Usage
 Start the server with:
 ```bash

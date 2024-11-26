@@ -42,3 +42,9 @@ The online learning platform is designed to let teacher and student manage and s
 9. studentinfo.ejs
 10. studentmanage.ejs
 
+## Usage
+Start the server with:
+```bash
+npm start
+```
+

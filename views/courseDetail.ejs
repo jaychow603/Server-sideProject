@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Course Detail</title>
+    <link rel="stylesheet" href="/stylesheets/courseDetailStyle.css">
+    <link rel="stylesheet" href="/stylesheets/navBarStyle.css">
+    <script>
+        function toggleStudentModal() {
+            const modal = document.getElementById('studentModal');
+            modal.style.display = modal.style.display === "block" ? "none" : "block";
+        }
+
+        window.onclick = function(event) {
+            const modal = document.getElementById('studentModal');
+            if (event.target === modal) {
+                modal.style.display = "none";
+            }
+        }
+
+        function confirmRemoval() {
+            return confirm("Are you sure you want to remove this student?");
+        }
+
+        function confirmAssignment() {
+            return confirm("Are you sure you want to assign this student?");
+        }
+
+        async function removeStudent(courseId, studentId) {
+            if (!confirmRemoval()) return;
+
+            try {
+                const response = await fetch(`/course/${courseId}/remove-student`, {
+                    method: 'DELETE',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ studentId: studentId })
+                });
+
+                if (response.ok) {
+                    // Optionally, refresh the page or update the UI to reflect changes
+                    window.location.reload();
+                } else {
+                    const result = await response.json();
+                    alert(result.message || 'Error removing student.');
+                }
+            } catch (error) {
+                console.error('Error:', error);
+                alert('An error occurred while removing the student.');
+            }
+        }
+    </script>
+</head>
+<body>
+    <%- include('header') %>
+    <div class="header-row">
+        <% if (userRole === 'student') { %>
+        <div>
+            <button onclick="location.href='/course'">Back to Course List</button>
+            <h2>Course <%= course.Course_ID %>   <%= course.name_subj %></h2>
+        </div>
+        <% } %>
+        <% if (userRole === 'teacher') { %>
+        <button onclick="location.href='/course'">Back to Course List</button>
+        <div>
+            <h2>Course <%= course.Course_ID %>   <%= course.name_subj %></h2>
+        </div>
+        <button onclick="toggleStudentModal()">Assign/Remove Student</button>
+        <% } %>
+    </div>
+
+    <% if (userRole === 'teacher') { %>
+    <a href="/academic-record/<%= course.Course_ID %>">Students Academic Record</a>
+    <% } %>
+
+    <div id="studentModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="toggleStudentModal()">&times;</span>
+            <h4>Manage Students</h4>
+            <br/>
+            <p> Student List: </p>
+            <div class="student-list">
+                <% enrolledStudents.forEach(student => { %>
+                    <div class="student-item">
+                        <span>
+                            <%= student.name %> (ID: <%= student.stud_id %>)
+                            <button onclick="removeStudent('<%= course.Course_ID %>', '<%= student.stud_id %>')" style="margin-left: 10px;">Remove</button>
+                        </span>
+                    </div>
+                <% }); %>
+            </div>
+            <br/>
+            <hr/>
+            <form action="/course/<%= course.Course_ID %>/assign-student" method="POST" onsubmit="return confirmAssignment()">
+                <label for="studentId">Assign Student ID:</label>
+                <select id="studentId" name="studentId" required>
+                    <option value="" disabled selected>Select a student</option>
+                    <% filteredstudents.forEach(student => { %>
+                        <option value="<%= student.stud_id %>"><%= student.name %> (ID: <%= student.stud_id %>)</option>
+                    <% }); %>
+                </select>
+                <button type="submit">Assign</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

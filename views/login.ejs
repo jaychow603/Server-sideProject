@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/stylesheets/login&record.css">
+    <title>Login</title>
+</head>
+<body>
+<div class="nine">
+    <h1>Online Learning Environment <span>Login Page</span></h1>
+</div>
+
+<div class="wallpaper"></div>
+
+<div class="login-box">
+    <h2>Login Your Account</h2>
+    <form id="loginForm"> <!-- Add an ID here for the form -->
+        <div class="user-box">
+            <input type="email" id="email" name="email" required>
+            <label>Email</label>
+        </div>
+        <div class="user-box">
+            <input type="password" id="password" name="password" required>
+            <label>Password</label>
+        </div>
+        <button type="submit">Login</button>
+    </form>
+</div>
+
+<script>
+    document.getElementById('loginForm').addEventListener('submit', async function(event) {
+        event.preventDefault(); // Prevent the default form submission
+
+        const email = document.getElementById('email').value;
+        const password = document.getElementById('password').value;
+
+        const response = await fetch('/login', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ email, password })
+        });
+
+        const data = await response.json();
+        if (response.ok) {
+            // Redirect to the homepage
+            window.location.href = data.redirect; // Use the redirect URL from the response
+        } else {
+            alert(data.message); // Show error message
+        }
+    });
+</script>
+</body>
+</html>

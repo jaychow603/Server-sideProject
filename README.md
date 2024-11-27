@@ -47,15 +47,14 @@ Download the file `Server-SideProject.zip` and unzip it.
 
 # API Test
 
-## Login
-Student Account:
-   email: peter@hkmu.edu.hk
-password: peterchan123
+### Student Account
+- **Email**: peter@hkmu.edu.hk
+- **Password**: peterchan123
 
-Teacher Account:
-   email: Daniel@hkmu.teacher.edu.hk
-password: daniellee456
-
+### Teacher Account
+- **Email**: Daniel@hkmu.teacher.edu.hk
+- **Password**: daniellee456
+- 
 Test using CURL
 ```text
 curl -X POST http://your-api-url/login \

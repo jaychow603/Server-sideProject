@@ -82,7 +82,10 @@ curl -X POST "http://your-api-url/change-password" \
 }' \
 -b cookies.txt
 ```
+**Response:**
+```
 
+```
 
 ## Change password for student
 To let logged student's to change password
@@ -90,6 +93,10 @@ To let logged student's to change password
 curl -X GET http://your-api-url/academic-record \
 -H "Accept: application/json" \
 -b cookies.txt
+```
+**Response:**
+```
+Password changed successfully!
 ```
 
 # Teacher Side
@@ -108,6 +115,13 @@ curl -X DELETE http://your-api-url/remove-student \
 -b cookies.txt
 ```
 
+**Response:**
+```
+{"message":"Student with ID 23 removed successfully."}
+```
+
+
+
 CURL Testing: Create Student
 ```text
 curl -X POST http://your-api-url/create-student \
@@ -122,6 +136,12 @@ curl -X POST http://your-api-url/create-student \
 }' \
 -b cookies.txt
 ```
+**Response:**
+```
+{"message":"Student: Test3 with ID: 23 created successfully."}
+```
+
+
 ## Course management
 To manage the course
 1. Assign or Remove Student to course

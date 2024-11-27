@@ -69,8 +69,33 @@ curl -X POST http://your-api-url/login \
 ```
 
 # Student Side
+## Change password for student
+To let logged student's to change password
+```text
+curl -X POST "http://your-api-url/change-password" \
+-H "Content-Type: application/json" \
+-H "Accept: application/json" \
+-d '{
+    "currentPassword": "current_password",
+    "newPassword": "new_password",
+    "confirmNewPassword": "new_password"
+}' \
+-b cookies.txt
+```
+**Response:**
+```
+Password changed successfully!
+```
+
 ## Academic Record(student)
 To get logged student's Academic Record
+```text
+curl -X GET http://your-api-url/academic-record \
+-H "Accept: application/json" \
+-b cookies.txt
+```
+
+
 ```text
 curl -X POST "http://your-api-url/change-password" \
 -H "Content-Type: application/json" \
@@ -86,19 +111,6 @@ curl -X POST "http://your-api-url/change-password" \
 ```
 
 ```
-
-## Change password for student
-To let logged student's to change password
-```text
-curl -X GET http://your-api-url/academic-record \
--H "Accept: application/json" \
--b cookies.txt
-```
-**Response:**
-```
-Password changed successfully!
-```
-
 # Teacher Side
 ## Student management
 To manage the student

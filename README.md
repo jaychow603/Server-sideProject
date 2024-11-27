@@ -45,6 +45,26 @@ The online learning platform is designed to let teacher and student manage and s
 ## Install
 Download the file `Server-SideProject.zip` and unzip it.
 
+# API Test
+
+## Login
+Student Account:
+   email: peter@hkmu.edu.hk
+password: peterchan123
+
+Teacher Account:
+   email: Daniel@hkmu.teacher.edu.hk
+password: daniellee456
+
+Test using CURL
+```text
+curl -X POST http://your-api-url/login \
+-H "Content-Type: application/json" \
+-d '{"email": "email@example.com", "password": "password"}'
+-c cookies.txt
+```
+
+
 ## Usage
 Start the server with:
 ```bash

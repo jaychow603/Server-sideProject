@@ -158,6 +158,11 @@ curl -X POST "http://your-api-url/course/course_ID/assign-student" \
 }' \
 -b cookies.txt
 ```
+**Response:**
+```
+{"message":"Course assign successful.."}}
+```
+
 
 ### CURL Testing: Remove Student from Course_ID
 ```text
@@ -169,6 +174,10 @@ curl -X DELETE "http://your-api-url/course/Course_ID/remove-student" \
 }' \
 -b cookies.txt
 ```
+**Response:**
+```
+{"message":"Student {Student_ID} removed from course {Course_ID} successfully."}
+```
 
 ## Student Academic Record Management
 ### CURL Testing: Student's Academic Record from this Course_ID
@@ -178,6 +187,11 @@ curl -X GET "http://your-api-url/academic-record/detail/Student_ID?courseId=Cour
 -H "Accept: application/json" \
 -b cookies.txt
 ```
+**Response:**
+```
+{"message":"StudentID: {Student_ID}'s is found.","AcademicRecord":{"_id":"RecordID","stud_id":Student_ID,"assignment_score":85,"Exam_score":95,"test_score":90,"Grade":"A","Course_ID":"{Course_ID}"}
+```
+
 
 ### CURL Testing: Student's Academic Record from this Course_ID
 ```text
@@ -195,6 +209,10 @@ curl -X PUT "http://your-api-url/academic-record/update" \
 -b cookies.txt
 ```
 
+**Response:**
+```
+{"message":"StudentID: {Student_ID}'s Academic Record updated successfully."}
+```
 
 ## Usage
 Start the server with:

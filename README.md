@@ -63,6 +63,11 @@ curl -X POST http://your-api-url/login \
 -d '{"email": "email@example.com", "password": "password"}'
 -c cookies.txt
 ```
+**Response:**
+```json
+{"message":"Login successful","redirect":"/homepage","role":"student"}
+```
+
 # Student Side
 ## Academic Record(student)
 To get logged student's Academic Record
@@ -168,7 +173,6 @@ curl -X PUT "http://your-api-url/academic-record/update" \
     "gradeEdit": "Final_Grade"
 }' \
 -b cookies.txt
-
 ```
 
 

@@ -63,7 +63,7 @@ curl -X POST http://your-api-url/login \
 -d '{"email": "email@example.com", "password": "password"}'
 -c cookies.txt
 ```
-## Student Side:
+# Student Side
 ## Academic Record(student)
 To get logged student's Academic Record
 ```text
@@ -85,6 +85,90 @@ To let logged student's to change password
 curl -X GET http://your-api-url/academic-record \
 -H "Accept: application/json" \
 -b cookies.txt
+```
+
+# Teacher Side
+## Student management
+To manage the student
+1. Remove student
+2. Create Student
+CURL Testing: Remove student
+```text
+curl -X DELETE http://your-api-url/remove-student \
+-H "Content-Type: application/json" \
+-H "Accept: application/json" \
+-d '{
+    "stud_id": "student_ID"
+}' \
+-b cookies.txt
+```
+
+CURL Testing: Create Student
+```text
+curl -X POST http://your-api-url/create-student \
+-H "Content-Type: application/json" \
+-H "Accept: application/json" \
+-d '{
+    "name": "new_student_name",
+    "email": "new_student_email",
+    "year": "year",
+    "password": "new_password",
+    "subject": "S106, S107"
+}' \
+-b cookies.txt
+```
+## Course management
+To manage the course
+1. Assign or Remove Student to course
+2. Student Academic Record Management
+
+## Assign or Remove Student to course
+### CURL Testing: Assign Student to course
+```text
+curl -X POST "http://your-api-url/course/course_ID/assign-student" \
+-H "Content-Type: application/json" \
+-H "Accept: application/json" \
+-d '{
+    "studentId": "Student_ID"
+}' \
+-b cookies.txt
+```
+
+### CURL Testing: Remove Student from Course_ID
+```text
+curl -X DELETE "http://your-api-url/course/Course_ID/remove-student" \
+-H "Content-Type: application/json" \
+-H "Accept: application/json" \
+-d '{
+    "studentId": "Student_ID"
+}' \
+-b cookies.txt
+```
+
+## Student Academic Record Management
+### CURL Testing: Student's Academic Record from this Course_ID
+```text
+curl -X GET "http://your-api-url/academic-record/detail/Student_ID?courseId=Course_ID" \
+-H "Content-Type: application/json" \
+-H "Accept: application/json" \
+-b cookies.txt
+```
+
+### CURL Testing: Student's Academic Record from this Course_ID
+```text
+curl -X PUT "http://your-api-url/academic-record/update" \
+-H "Content-Type: application/json" \
+-H "Accept: application/json" \
+-d '{
+    "studId": "Student_ID",
+    "CourseID": "Course_ID",
+    "assignmentScoreEdit": "assignment__Score",
+    "testScoreEdit": "test_Score",
+    "examScoreEdit": "exam_Score",
+    "gradeEdit": "Final_Grade"
+}' \
+-b cookies.txt
+
 ```
 
 

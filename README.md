@@ -47,6 +47,7 @@ Download the file `Server-SideProject.zip` and unzip it.
 
 # API Test
 
+## Login
 ### Student Account
 - **Email**: peter@hkmu.edu.hk
 - **Password**: peterchan123
@@ -54,13 +55,36 @@ Download the file `Server-SideProject.zip` and unzip it.
 ### Teacher Account
 - **Email**: Daniel@hkmu.teacher.edu.hk
 - **Password**: daniellee456
-- 
-Test using CURL
+  
+Authenticate users using CURL tests
 ```text
 curl -X POST http://your-api-url/login \
 -H "Content-Type: application/json" \
 -d '{"email": "email@example.com", "password": "password"}'
 -c cookies.txt
+```
+## Student Side:
+## Academic Record(student)
+To get logged student's Academic Record
+```text
+curl -X POST "http://your-api-url/change-password" \
+-H "Content-Type: application/json" \
+-H "Accept: application/json" \
+-d '{
+    "currentPassword": "current_password",
+    "newPassword": "new_password",
+    "confirmNewPassword": "new_password"
+}' \
+-b cookies.txt
+```
+
+
+## Change password for student
+To let logged student's to change password
+```text
+curl -X GET http://your-api-url/academic-record \
+-H "Accept: application/json" \
+-b cookies.txt
 ```
 
 

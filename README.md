@@ -47,10 +47,8 @@ Download the file `Server-SideProject.zip` and unzip it.
 Before start the server, pls use `npm install` function to install the package first.
 
 ## Usage
-Start the server with:
-```bash
-node server.js
-```
+
+
 1.Login/Logout Pages
  - Login information: Different role have a different formal of login account. Student is `xxxxx@hkmu.edu.hk` and Teacher is `xxxxx@hkmu.teacher.edu.hk`
  - Sign-In Steps:
@@ -72,7 +70,98 @@ node server.js
  - **Students Management**:Click the `Students Management` will redirect to the student list(`studentmanage.ejs`).Here allow the user remove or add student into the class by `Create Student` or `Remove`.
 
 
-# API Document
+# API Documentation
+**Base URL**
+https://s381f-project-group38.onrender.com/
+
+Start the server with:
+```bash
+node server.js
+```
+#### POST `/login`
+- **Description**: Authenticates a user and initiates a session.
+- **Request Body:**
+  ```json
+  {
+    "username": "string",
+    "password": "string"
+  }
+  ```
+  - **Response:**
+  - **200 OK:**
+    ```json
+    {
+      "message": "Login successful",
+      "redirect": "/homepage",
+      "role": "teacher"// or "student"
+    }
+    ```
+  - 401 Unauthorized: Invalid email or password
+ 
+#### POST `/api/auth/logout`
+- **Description**: Logs out the authenticated user and terminates the session.
+- **Response:**
+  - **200 OK:**
+    ```json
+    {
+      "message": "logout successful"
+    }
+    ```
+
+### POST /change-password
+ - **Description**:Change password for the cuurrent user
+ - **Request Body:**
+  ```json
+  {
+       "currentPassword": "string",
+       "newPassword": "string",
+       "confirmNewPassword": "string"
+  }
+   ```
+- **Response:**
+  - **200 OK:**:Password changed successfully!
+  - **400 Bad Request**:New password and confirmation do not match.
+  - **401 Unauthorized**:Current password is incorrect.
+
+### GET /academic-record
+- **Description**:Direct to the academic record page.
+- **Response:**
+  - **200 OK:**:Direct to the academic record page.
+ 
+### Student management 
+
+  ## POST /create-student
+  - **Description**:Create new student data
+    - Form-data Example:
+      -  
+    ```json
+    {
+        "name": "string",
+        "email": "string",
+        "year": "int",
+        "password": "string",
+        "subject": "string"
+    }
+     ```
+  - **Authentication**: Admin required.
+
+## DELETE /remove-student
+- **Description**:Delete the data of student
+   ```
+     { 
+         "stud_id": "int" 
+    }
+    ```
+    - **Response:**
+      - **200 OK:**
+        ```json
+        {
+          "message": "Student with ID removed successfully."
+        }
+          ```
+   - 400 Bad Request：Student ID is needed.
+   - 404 Not Found：Student is not found.
+
 
 # API Test
 

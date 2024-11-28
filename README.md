@@ -94,18 +94,6 @@ curl -X GET http://your-api-url/academic-record \
 -H "Accept: application/json" \
 -b cookies.txt
 ```
-
-
-```text
-curl -X POST "http://your-api-url/change-password" \
--H "Content-Type: application/json" \
--H "Accept: application/json" \
--d '{
-    "currentPassword": "current_password",
-    "newPassword": "new_password",
-    "confirmNewPassword": "new_password"
-}' \
--b cookies.txt
 ```
 **Response:**
 ```

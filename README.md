@@ -45,6 +45,33 @@ The online learning platform is designed to let teacher and student manage and s
 ## Install
 Download the file `Server-SideProject.zip` and unzip it.
 
+## Usage
+Start the server with:
+```bash
+node server.js
+```
+1.Login/Logout Pages
+ - Login information: Different role have a different formal of login account. Student is `xxxxx@hkmu.edu.hk` and Teacher is `xxxxx@hkmu.teacher.edu.hk`
+ - Sign-In Steps:
+ 1.Access the login page:Open the `login.ejs` to the login page.
+ 2.Input your account and password according to your role.
+ 3.Click the login button.
+ 4.If your account and password is correct, you will be redirected to homepage (`homepage.ejs`).
+ -**logout**:Use the logout button, it wilkl redirects the user to login page(`login.ejs`).
+
+2.Functions on web pages(student)
+  - **Courses**:Click the `courses` in the header will redirect to the course schedule (`coursepage.ejs`).In course page, the course is showed on the timetable according to the user's learning courses.
+  - **Academic Record**:Click the `Academic Record` will redirect to the term summary (`academicrecord(student).ejs`).There show the current information of user.
+  - **Profile**:Click the `profile` redirect to the personal information and password setting page(`studentinfo.ejs`).There are boxes for user to enter their password and new password and it will correct the data in the database by pressing `change password`.
+
+3.Functions on web pages(teacher)
+ - **Courses**:Click the `courses` in the header will redirect to the course schedule (`coursepage.ejs`).In course page, the course is showed on the timetable according to the user's learning courses.
+   -There are the course arrcording to the teacher is teaching.Teacher can go into the student academic record(`academicrecord(teacher).ejs`) .There allows teacher change the data of students here to the database.
+   
+ - **Students Management**:Click the `Students Management` will redirect to the student list(`studentmanage.ejs`).Here allow the user remove or add student into the class by `Create Student` or `Remove`.
+
+
+
 # API Test
 
 ## Login
@@ -201,28 +228,3 @@ curl -X PUT "http://your-api-url/academic-record/update" \
 ```
 {"message":"StudentID: {Student_ID}'s Academic Record updated successfully."}
 ```
-
-## Usage
-Start the server with:
-```bash
-node server.js
-```
-1.Login/Logout Pages
- - Login information: Different role have a different formal of login account. Student is `xxxxx@hkmu.edu.hk` and Teacher is `xxxxx@hkmu.teacher.edu.hk`
- - Sign-In Steps:
- 1.Access the login page:Open the `login.ejs` to the login page.
- 2.Input your account and password according to your role.
- 3.Click the login button.
- 4.If your account and password is correct, you will be redirected to homepage (`homepage.ejs`).
- -**logout**:Use the logout button, it wilkl redirects the user to login page(`login.ejs`).
-
-2.Functions on web pages(student)
-  - **Courses**:Click the `courses` in the header will redirect to the course schedule (`coursepage.ejs`).In course page, the course is showed on the timetable according to the user's learning courses.
-  - **Academic Record**:Click the `Academic Record` will redirect to the term summary (`academicrecord(student).ejs`).There show the current information of user.
-  - **Profile**:Click the `profile` redirect to the personal information and password setting page(`studentinfo.ejs`).There are boxes for user to enter their password and new password and it will correct the data in the database by pressing `change password`.
-
-3.Functions on web pages(teacher)
- - **Courses**:Click the `courses` in the header will redirect to the course schedule (`coursepage.ejs`).In course page, the course is showed on the timetable according to the user's learning courses.
-   -There are the course arrcording to the teacher is teaching.Teacher can go into the student academic record(`academicrecord(teacher).ejs`) .There allows teacher change the data of students here to the database.
-   
- - **Students Management**:Click the `Students Management` will redirect to the student list(`studentmanage.ejs`).Here allow the user remove or add student into the class by `Create Student` or `Remove`.

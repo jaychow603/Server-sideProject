@@ -72,6 +72,7 @@ node server.js
  - **Students Management**:Click the `Students Management` will redirect to the student list(`studentmanage.ejs`).Here allow the user remove or add student into the class by `Create Student` or `Remove`.
 
 
+# API Document
 
 # API Test
 

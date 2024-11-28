@@ -87,18 +87,6 @@ curl -X POST "http://your-api-url/change-password" \
 Password changed successfully!
 ```
 
-## Academic Record(student)
-To get logged student's Academic Record
-```text
-curl -X GET http://your-api-url/academic-record \
--H "Accept: application/json" \
--b cookies.txt
-```
-```
-**Response:**
-```
-
-```
 # Teacher Side
 ## Student management
 To manage the student

@@ -44,6 +44,7 @@ The online learning platform is designed to let teacher and student manage and s
 
 ## Install
 Download the file `Server-SideProject.zip` and unzip it.
+Before start the server, pls use (`npm install`) function to install the package first.
 
 ## Usage
 Start the server with:

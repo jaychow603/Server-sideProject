@@ -229,7 +229,7 @@ curl -X PUT "http://your-api-url/academic-record/update" \
 ## Usage
 Start the server with:
 ```bash
-npm start
+node server.js
 ```
 1.Login/Logout Pages
  - Login information: Different role have a different formal of login account. Student is `xxxxx@hkmu.edu.hk` and Teacher is `xxxxx@hkmu.teacher.edu.hk`

@@ -18,7 +18,7 @@ Online Learning platform
 The online learning platform is designed to let teacher and student manage and store their academic online. It provides serval functions including checking academic record, studing subject and time table.
 
 `server.js`:
-Dependencies: Imports required packages like express, cookie-parser, body-parser, dotenv, and others. Also imports custom modules like header middleware and connectDB.
+Dependencies: Imports required packages like express, body-parser, and others. Also imports custom modules like connectDB.
 
  `package.json`:
 - body-parser(`^1.20.3`):Body-parser parses is an HTTP request body that usually helps when you need to know more than just the URL being hit.

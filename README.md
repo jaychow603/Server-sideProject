@@ -28,8 +28,8 @@ The online learning platform is designed to let teacher and student manage and s
 - mongodb(`^6.10.0`):MongoDB is a source-available, cross-platform, document-oriented database program.
 
 `public folder`:
-1.Image folder:It includes the image that we used in the website.
-2.stylesheets:It includes every css file of the ejs files of the `views folder`
+- 1.Image folder:It includes the image that we used in the website.
+- 2.stylesheets:It includes every css file of the ejs files of the `views folder`
 
 `views folder`:
 1. academicRecord.ejs
